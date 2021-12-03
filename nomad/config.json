@@ -1,0 +1,32 @@
+{
+  "name": "Nomad",
+  "version": "1.0",
+  "description": "Use your Home Assistant instance as a Nomad agent",
+  "startup": "system",
+  "boot": "auto",
+  "ports": {
+    "4646/tcp": 4646,
+    "4647/tcp": 4647,
+    "4648": 4648
+  },
+  "ports_description": {
+    "4646/tcp": "Nomad HTTP API",
+    "4647/tcp": "Nomad RPC communication",
+    "4648": "Nomad Serf communication"
+  },
+  "host_network": true,
+  "full_access": true,
+  "environment": {
+    "NOMAD_CONFIG_DIR": "/config/nomad.d",
+    "NOMAD_DATA_DIR": "/media/nomad"
+  },
+  "options": {},
+  "schema": {},
+  "arch": [
+    "amd64"
+  ],
+  "map": [
+    "config:rw",
+    "media:rw"
+  ]
+}
